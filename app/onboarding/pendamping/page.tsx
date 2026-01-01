@@ -115,7 +115,7 @@ export default function OnboardingPendampingChat() {
     const result = await getParentByCode(uniqueCode);
     setIsSearching(false);
 
-    if (!result.success) {
+    if (!result.success || !result.data) {
       console.log(result.error || "Kode tidak ditemukan");
       return;
     }

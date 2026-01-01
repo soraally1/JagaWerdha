@@ -29,7 +29,7 @@ export default function RegisterPage() {
       name,
       email,
       password,
-      role: role.toUpperCase()
+      role: role.toUpperCase() as "ADMIN" | "ORANGTUA" | "PENDAMPING"
     })
     if (result?.success) {
       await signIn('credentials', {
