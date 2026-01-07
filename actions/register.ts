@@ -1,5 +1,5 @@
 'use server'
-import { UserAuthService } from "@/services/user-auth";
+import { UserAuthService } from "@/services/user-auth.service";
 import { RegisterUserData } from "@/types/auth";
 
 export const register = async (data: RegisterUserData) => {

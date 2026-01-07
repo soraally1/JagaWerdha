@@ -1,6 +1,6 @@
 'use server'
 
-import { UserAuthService } from "@/services/user-auth";
+import { UserAuthService } from "@/services/user-auth.service";
 import { OnboardingType, OnboardingData } from "@/types/onboarding";
 import { auth } from "@/auth";
 
