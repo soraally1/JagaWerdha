@@ -4,7 +4,7 @@ export default function PendampingProfile({ profileData }) {
     const assignedElderly = profileData.orangTua || [];
 
     return (
-        <div className="mx-2 md:mx-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <>
             {/* Pendamping Info Card */}
             {profileData.pendampingProfile && (
                 <div className="bg-[var(--cream)]/30 rounded-2xl p-6 shadow-md border border-[var(--sage-light)]/20">
@@ -34,8 +34,8 @@ export default function PendampingProfile({ profileData }) {
             )}
 
             {/* Assigned Elderly List (Lansia Asuhan) */}
-            <div className={`md:col-span-2 ${!profileData.pendampingProfile ? 'md:col-span-3' : ''}`}>
-                <div className="bg-white rounded-2xl shadow-lg border border-[var(--sage-light)]/20 overflow-hidden">
+            <div className="h-full">
+                <div className="bg-white rounded-2xl shadow-lg border border-[var(--sage-light)]/20 overflow-hidden h-full">
                     <div className="p-6 bg-[var(--sage)] text-white relative">
                         {/* Header pattern */}
                         <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-10 -mt-10 blur-2xl"></div>
@@ -50,7 +50,7 @@ export default function PendampingProfile({ profileData }) {
 
                     <div className="p-6 bg-[var(--background)]">
                         {assignedElderly.length > 0 ? (
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+                            <div className="grid grid-cols-1 gap-4">
                                 {assignedElderly.map((orangTua) => (
                                     <div key={orangTua.id} className="bg-white p-5 rounded-xl shadow-sm border border-[var(--sage-light)]/20 hover:border-[var(--sage)]/50 transition-all hover:-translate-y-1 group">
                                         <div className="flex items-start gap-4">
@@ -100,6 +100,6 @@ export default function PendampingProfile({ profileData }) {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
