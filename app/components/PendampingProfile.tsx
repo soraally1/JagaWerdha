@@ -1,6 +1,31 @@
 import React from 'react';
 
-export default function PendampingProfile({ profileData }) {
+interface OrangTuaProfile {
+    usia?: number;
+    riwayatPenyakit?: string[];
+}
+
+interface OrangTua {
+    id: string | number;
+    name?: string | null;
+    email: string;
+    orangTuaProfile?: OrangTuaProfile | null;
+}
+
+interface PendampingProfile {
+    usia: number;
+}
+
+interface ProfileData {
+    pendampingProfile?: PendampingProfile | null;
+    orangTua?: OrangTua[] | null;
+}
+
+interface PendampingProfileProps {
+    profileData: ProfileData;
+}
+
+export default function PendampingProfile({ profileData }: PendampingProfileProps) {
     const assignedElderly = profileData.orangTua || [];
 
     return (
@@ -74,7 +99,7 @@ export default function PendampingProfile({ profileData }) {
                                                         </span>
                                                     )}
                                                     {/* Show active diseases count or first disease */}
-                                                    {orangTua.orangTuaProfile?.riwayatPenyakit?.length > 0 && (
+                                                    {orangTua.orangTuaProfile?.riwayatPenyakit?.length && orangTua.orangTuaProfile.riwayatPenyakit.length > 0 && (
                                                         <span className="px-2 py-1 bg-red-50 text-red-600 rounded-md font-medium border border-red-100">
                                                             {orangTua.orangTuaProfile.riwayatPenyakit[0]}
                                                             {orangTua.orangTuaProfile.riwayatPenyakit.length > 1 && ` +${orangTua.orangTuaProfile.riwayatPenyakit.length - 1}`}
