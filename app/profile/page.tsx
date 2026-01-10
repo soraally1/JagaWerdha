@@ -3,7 +3,7 @@ import { auth } from "@/auth";
 import { UserRole } from "@/app/generated/prisma/enums";
 import { redirect } from "next/navigation";
 import BackButton from "@/app/components/BackButton";
-import { logout } from "@/app/actions/auth";
+import { logout } from "@/actions/logout";
 import PendampingProfile from "../components/PendampingProfile";
 import EventColumn from "../components/EventColumn";
 import LansiaAsuhanList from "../components/LansiaAsuhanList";
@@ -28,12 +28,12 @@ export default async function ProfilePage() {
         );
     }
 
-    // const isOrangTua = profileData.role === UserRole.ORANGTUA;
-    // const isPendamping = profileData.role === UserRole.PENDAMPING;
+    const isOrangTua = profileData.role === UserRole.ORANGTUA;
+    const isPendamping = profileData.role === UserRole.PENDAMPING;
 
     // DEV: Forced view for development
-    const isOrangTua = false;
-    const isPendamping = true;
+    // const isOrangTua = false;
+    // const isPendamping = false;
 
     return (
         <div className="min-h-screen py-7 px-1 md:p-8 space-y-8">
